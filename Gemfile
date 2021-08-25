@@ -79,8 +79,8 @@ gem 'rest-client'
 gem 'rinku'
 gem 'sanitize'
 gem 'sass'
-gem 'sidekiq'
-gem 'sidekiq-statistic'
+gem 'sidekiq', '>= 6.2.1'
+gem 'sidekiq-statistic', '>= 1.4.0'
 
 # for sidekiq web
 gem 'sinatra', require: false
