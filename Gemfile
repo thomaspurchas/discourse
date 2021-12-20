@@ -34,7 +34,7 @@ gem 'handlebars-source', '2.0.0'
 gem 'barber'
 gem 'babel-transpiler'
 
-gem 'message_bus'
+gem 'message_bus', '>= 3.3.7'
 
 gem 'rails_multisite'
 
