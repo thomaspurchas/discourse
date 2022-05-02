@@ -83,7 +83,7 @@ gem 'sidekiq'
 gem 'sidekiq-statistic'
 
 # for sidekiq web
-gem 'sinatra', require: false
+gem 'sinatra', '>= 2.2.0', require: false
 
 gem 'therubyracer'
 gem 'thin', require: false
