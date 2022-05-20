@@ -8,11 +8,11 @@ end
 
 if rails_master?
   gem 'arel', git: 'https://github.com/rails/arel.git'
-  gem 'rails', git: 'https://github.com/rails/rails.git'
+  gem 'rails', '>= 4.2.4', git: 'https://github.com/rails/rails.git'
   gem 'rails-observers', git: 'https://github.com/rails/rails-observers.git'
   gem 'seed-fu', git: 'https://github.com/SamSaffron/seed-fu.git', branch: 'discourse'
 else
-  gem 'rails', '~> 4.2'
+  gem 'rails', '~> 4.2', '>= 4.2.4'
   gem 'rails-observers'
   gem 'seed-fu', '~> 2.3.5'
 end
@@ -26,7 +26,7 @@ gem 'redis', require:  ["redis", "redis/connection/hiredis"]
 
 gem 'active_model_serializers', '~> 0.8.3'
 
-gem 'onebox'
+gem 'onebox', '>= 1.8.3'
 
 gem 'ember-rails'
 gem 'ember-source', '1.12.1'
@@ -56,7 +56,7 @@ gem 'email_reply_parser'
 gem 'image_optim', '0.20.2'
 gem 'multi_json'
 gem 'mustache'
-gem 'nokogiri'
+gem 'nokogiri', '>= 1.13.6'
 gem 'omniauth'
 gem 'omniauth-openid'
 gem 'openid-redis-store'
