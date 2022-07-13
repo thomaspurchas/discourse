@@ -8,11 +8,11 @@ end
 
 if rails_master?
   gem 'arel', git: 'https://github.com/rails/arel.git'
-  gem 'rails', git: 'https://github.com/rails/rails.git'
+  gem 'rails', '>= 5.2.8.1', git: 'https://github.com/rails/rails.git'
   gem 'rails-observers', git: 'https://github.com/rails/rails-observers.git'
   gem 'seed-fu', git: 'https://github.com/SamSaffron/seed-fu.git', branch: 'discourse'
 else
-  gem 'rails', '~> 4.2'
+  gem 'rails', '~> 5.2', '>= 5.2.8.1'
   gem 'rails-observers'
   gem 'seed-fu', '~> 2.3.5'
 end
