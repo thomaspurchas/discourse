@@ -8,11 +8,11 @@ end
 
 if rails_master?
   gem 'arel', git: 'https://github.com/rails/arel.git'
-  gem 'rails', git: 'https://github.com/rails/rails.git'
+  gem 'rails', '>= 5.0.0', git: 'https://github.com/rails/rails.git'
   gem 'rails-observers', git: 'https://github.com/rails/rails-observers.git'
   gem 'seed-fu', git: 'https://github.com/SamSaffron/seed-fu.git', branch: 'discourse'
 else
-  gem 'rails', '~> 4.2'
+  gem 'rails', '~> 5.0', '>= 5.0.0'
   gem 'rails-observers'
   gem 'seed-fu', '~> 2.3.5'
 end
@@ -57,7 +57,7 @@ gem 'image_optim', '0.20.2'
 gem 'multi_json'
 gem 'mustache'
 gem 'nokogiri'
-gem 'omniauth'
+gem 'omniauth', '>= 1.3.1'
 gem 'omniauth-openid'
 gem 'openid-redis-store'
 gem 'omniauth-facebook'
@@ -83,10 +83,10 @@ gem 'sidekiq'
 gem 'sidekiq-statistic'
 
 # for sidekiq web
-gem 'sinatra', require: false
+gem 'sinatra', '>= 2.0.0', require: false
 
 gem 'therubyracer'
-gem 'thin', require: false
+gem 'thin', '>= 1.7.0', require: false
 gem 'highline', require: false
 gem 'rack-protection' # security
 
@@ -94,7 +94,7 @@ gem 'rack-protection' # security
 # in production environments by default.
 # allow everywhere for now cause we are allowing asset debugging in prd
 group :assets do
-  gem 'sass-rails', '~> 4.0.5'
+  gem 'sass-rails', '~> 5.0.5'
   gem 'uglifier'
   gem 'rtlit', require: false # for css rtling
 end
@@ -115,7 +115,7 @@ group :test, :development do
   gem 'mocha', require: false
   gem 'rb-fsevent', require: RUBY_PLATFORM =~ /darwin/i ? 'rb-fsevent' : false
   gem 'rb-inotify', '~> 0.9', require: RUBY_PLATFORM =~ /linux/i ? 'rb-inotify' : false
-  gem 'rspec-rails', require: false
+  gem 'rspec-rails', '>= 3.5.0', require: false
   gem 'shoulda', require: false
   gem 'simplecov', require: false
   gem 'timecop'
