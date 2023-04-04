@@ -8,13 +8,13 @@ end
 
 if rails_master?
   gem 'arel', git: 'https://github.com/rails/arel.git'
-  gem 'rails', git: 'https://github.com/rails/rails.git'
-  gem 'rails-observers', git: 'https://github.com/rails/rails-observers.git'
-  gem 'seed-fu', git: 'https://github.com/SamSaffron/seed-fu.git', branch: 'discourse'
+  gem 'rails', '>= 6.1.7.3', git: 'https://github.com/rails/rails.git'
+  gem 'rails-observers', '>= 0.1.4', '>= 0.1.4', git: 'https://github.com/rails/rails-observers.git'
+  gem 'seed-fu', '>= 2.3.6', git: 'https://github.com/SamSaffron/seed-fu.git', branch: 'discourse'
 else
-  gem 'rails', '~> 4.2'
+  gem 'rails', '~> 6.1', '>= 6.1.7.3'
   gem 'rails-observers'
-  gem 'seed-fu', '~> 2.3.5'
+  gem 'seed-fu', '~> 2.3.6'
 end
 
 gem 'mail'
@@ -26,17 +26,17 @@ gem 'redis', require:  ["redis", "redis/connection/hiredis"]
 
 gem 'active_model_serializers', '~> 0.8.3'
 
-gem 'onebox'
+gem 'onebox', '>= 1.8.3'
 
 gem 'ember-rails'
-gem 'ember-source', '1.12.1'
-gem 'handlebars-source', '2.0.0'
+gem 'ember-source', '1.12.2'
+gem 'handlebars-source', '4.0.0'
 gem 'barber'
 gem 'babel-transpiler'
 
-gem 'message_bus'
+gem 'message_bus', '>= 3.3.7'
 
-gem 'rails_multisite'
+gem 'rails_multisite', '>= 4.0.0'
 
 gem 'fast_xs'
 
@@ -45,7 +45,7 @@ gem 'fast_xor'
 # while we sort out https://github.com/sdsykes/fastimage/pull/46
 gem 'fastimage_discourse', require: 'fastimage'
 gem 'aws-sdk', require: false
-gem 'excon', require: false
+gem 'excon', '>= 0.71.0', require: false
 gem 'unf', require: false
 
 gem 'email_reply_parser'
@@ -56,45 +56,45 @@ gem 'email_reply_parser'
 gem 'image_optim', '0.20.2'
 gem 'multi_json'
 gem 'mustache'
-gem 'nokogiri'
-gem 'omniauth'
-gem 'omniauth-openid'
+gem 'nokogiri', '>= 1.13.9'
+gem 'omniauth', '>= 2.1.0'
+gem 'omniauth-openid', '>= 2.0.1'
 gem 'openid-redis-store'
 gem 'omniauth-facebook'
-gem 'omniauth-twitter'
+gem 'omniauth-twitter', '>= 1.3.0'
 
 # forked while https://github.com/intridea/omniauth-github/pull/41 is being upstreamd
 gem 'omniauth-github-discourse', require: 'omniauth-github'
 
-gem 'omniauth-oauth2', require: false
+gem 'omniauth-oauth2', '>= 1.7.1', require: false
 gem 'omniauth-google-oauth2'
 gem 'oj'
 gem 'pg'
 gem 'pry-rails', require: false
 gem 'r2', '~> 0.2.5', require: false
-gem 'rake'
+gem 'rake', '>= 12.3.3'
 
 
-gem 'rest-client'
+gem 'rest-client', '>= 1.8.0'
 gem 'rinku'
-gem 'sanitize'
+gem 'sanitize', '>= 5.2.1'
 gem 'sass'
-gem 'sidekiq'
-gem 'sidekiq-statistic'
+gem 'sidekiq', '>= 6.2.1'
+gem 'sidekiq-statistic', '>= 1.4.0'
 
 # for sidekiq web
-gem 'sinatra', require: false
+gem 'sinatra', '>= 2.2.3', require: false
 
 gem 'therubyracer'
-gem 'thin', require: false
+gem 'thin', '>= 1.7.0', require: false
 gem 'highline', require: false
-gem 'rack-protection' # security
+gem 'rack-protection' , '>= 2.0.0' # security
 
 # Gems used only for assets and not required
 # in production environments by default.
 # allow everywhere for now cause we are allowing asset debugging in prd
 group :assets do
-  gem 'sass-rails', '~> 4.0.5'
+  gem 'sass-rails', '~> 6.0.0'
   gem 'uglifier'
   gem 'rtlit', require: false # for css rtling
 end
@@ -114,10 +114,10 @@ group :test, :development do
   gem 'discourse-qunit-rails', require: 'qunit-rails'
   gem 'mocha', require: false
   gem 'rb-fsevent', require: RUBY_PLATFORM =~ /darwin/i ? 'rb-fsevent' : false
-  gem 'rb-inotify', '~> 0.9', require: RUBY_PLATFORM =~ /linux/i ? 'rb-inotify' : false
-  gem 'rspec-rails', require: false
+  gem 'rb-inotify', '~> 0.9', '>= 0.9.5', require: RUBY_PLATFORM =~ /linux/i ? 'rb-inotify' : false
+  gem 'rspec-rails', '>= 3.5.0', require: false
   gem 'shoulda', require: false
-  gem 'simplecov', require: false
+  gem 'simplecov', '>= 0.12.0', require: false
   gem 'timecop'
   gem 'rspec-given'
   gem 'pry-nav'
@@ -126,10 +126,10 @@ group :test, :development do
 end
 
 group :development do
-  gem 'better_errors'
+  gem 'better_errors', '>= 2.8.0'
   gem 'binding_of_caller'
   gem 'librarian', '>= 0.0.25', require: false
-  gem 'annotate'
+  gem 'annotate', '>= 2.7.5'
   gem 'foreman', require: false
 end
 
@@ -148,10 +148,10 @@ gem 'htmlentities', require: false
 #  we are open to it. by deferring require to the initializer we can configure discourse installs without it
 
 gem 'flamegraph', require: false
-gem 'rack-mini-profiler', require: false
+gem 'rack-mini-profiler', '>= 0.10.1', require: false
 
 gem 'unicorn', require: false
-gem 'puma', require: false
+gem 'puma', '>= 4.3.12', require: false
 gem 'rbtrace', require: false, platform: :mri
 
 # required for feed importing and embedding
