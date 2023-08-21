@@ -213,6 +213,7 @@ GEM
     mustache (1.0.2)
     nenv (0.2.0)
     netrc (0.10.3)
+    nio4r (2.5.9)
     nokogiri (1.6.6.2)
       mini_portile (~> 0.6.0)
     nokogumbo (1.4.1)
@@ -266,7 +267,8 @@ GEM
       pry (>= 0.9.10, < 0.11.0)
     pry-rails (0.3.4)
       pry (>= 0.9.10)
-    puma (2.14.0)
+    puma (6.3.1)
+      nio4r (~> 2.0)
     r2 (0.2.5)
     rack (1.6.4)
     rack-mini-profiler (0.9.7)
@@ -494,7 +496,7 @@ DEPENDENCIES
   pg
   pry-nav
   pry-rails
-  puma
+  puma (>= 5.6.7)
   r2 (~> 0.2.5)
   rack-mini-profiler
   rack-protection
@@ -534,4 +536,4 @@ DEPENDENCIES
   unicorn
 
 BUNDLED WITH
-   1.10.6
+   1.17.3
