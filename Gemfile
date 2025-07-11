@@ -8,13 +8,13 @@ end
 
 if rails_master?
   gem 'arel', git: 'https://github.com/rails/arel.git'
-  gem 'rails', git: 'https://github.com/rails/rails.git'
-  gem 'rails-observers', git: 'https://github.com/rails/rails-observers.git'
-  gem 'seed-fu', git: 'https://github.com/SamSaffron/seed-fu.git', branch: 'discourse'
+  gem 'rails', '>= 7.1.0', git: 'https://github.com/rails/rails.git'
+  gem 'rails-observers', '>= 0.1.4', '>= 0.1.4', git: 'https://github.com/rails/rails-observers.git'
+  gem 'seed-fu', '>= 2.3.6', git: 'https://github.com/SamSaffron/seed-fu.git', branch: 'discourse'
 else
-  gem 'rails', '~> 4.2'
+  gem 'rails', '~> 7.1', '>= 7.1.0'
   gem 'rails-observers'
-  gem 'seed-fu', '~> 2.3.5'
+  gem 'seed-fu', '~> 2.3.6'
 end
 
 gem 'mail'
@@ -24,17 +24,17 @@ gem 'mime-types', require: 'mime/types/columnar'
 gem 'hiredis'
 gem 'redis', require:  ["redis", "redis/connection/hiredis"]
 
-gem 'active_model_serializers', '~> 0.8.3'
+gem 'active_model_serializers', '~> 0.8.4'
 
-gem 'onebox'
+gem 'onebox', '>= 1.8.3'
 
-gem 'ember-rails'
+gem 'ember-rails', '>= 0.18.3'
 gem 'ember-source', '1.12.1'
 gem 'handlebars-source', '2.0.0'
-gem 'barber'
+gem 'barber', '>= 0.9.1'
 gem 'babel-transpiler'
 
-gem 'message_bus'
+gem 'message_bus', '>= 1.1.0'
 
 gem 'rails_multisite'
 
@@ -57,17 +57,17 @@ gem 'image_optim', '0.20.2'
 gem 'multi_json'
 gem 'mustache'
 gem 'nokogiri'
-gem 'omniauth'
-gem 'omniauth-openid'
+gem 'omniauth', '>= 2.1.0'
+gem 'omniauth-openid', '>= 2.0.1'
 gem 'openid-redis-store'
-gem 'omniauth-facebook'
-gem 'omniauth-twitter'
+gem 'omniauth-facebook', '>= 3.0.0'
+gem 'omniauth-twitter', '>= 1.3.0'
 
 # forked while https://github.com/intridea/omniauth-github/pull/41 is being upstreamd
 gem 'omniauth-github-discourse', require: 'omniauth-github'
 
-gem 'omniauth-oauth2', require: false
-gem 'omniauth-google-oauth2'
+gem 'omniauth-oauth2', '>= 1.7.1', require: false
+gem 'omniauth-google-oauth2', '>= 0.2.6'
 gem 'oj'
 gem 'pg'
 gem 'pry-rails', require: false
@@ -77,24 +77,24 @@ gem 'rake'
 
 gem 'rest-client'
 gem 'rinku'
-gem 'sanitize'
+gem 'sanitize', '>= 6.0.0'
 gem 'sass'
 gem 'sidekiq'
-gem 'sidekiq-statistic'
+gem 'sidekiq-statistic', '>= 1.4.0'
 
 # for sidekiq web
-gem 'sinatra', require: false
+gem 'sinatra', '>= 2.0.0', require: false
 
 gem 'therubyracer'
-gem 'thin', require: false
+gem 'thin', '>= 2.0.0', require: false
 gem 'highline', require: false
-gem 'rack-protection' # security
+gem 'rack-protection' , '>= 1.5.4' # security
 
 # Gems used only for assets and not required
 # in production environments by default.
 # allow everywhere for now cause we are allowing asset debugging in prd
 group :assets do
-  gem 'sass-rails', '~> 4.0.5'
+  gem 'sass-rails', '~> 6.0.0'
   gem 'uglifier'
   gem 'rtlit', require: false # for css rtling
 end
@@ -111,12 +111,12 @@ group :test, :development do
   gem 'certified', require: false
   # later appears to break Fabricate(:topic, category: category)
   gem 'fabrication', '2.9.8', require: false
-  gem 'discourse-qunit-rails', require: 'qunit-rails'
+  gem 'discourse-qunit-rails', '>= 0.0.9', require: 'qunit-rails'
   gem 'mocha', require: false
   gem 'rb-fsevent', require: RUBY_PLATFORM =~ /darwin/i ? 'rb-fsevent' : false
-  gem 'rb-inotify', '~> 0.9', require: RUBY_PLATFORM =~ /linux/i ? 'rb-inotify' : false
-  gem 'rspec-rails', require: false
-  gem 'shoulda', require: false
+  gem 'rb-inotify', '~> 0.9', '>= 0.9.7', require: RUBY_PLATFORM =~ /linux/i ? 'rb-inotify' : false
+  gem 'rspec-rails', '>= 3.5.0', require: false
+  gem 'shoulda', '>= 3.6.0', require: false
   gem 'simplecov', require: false
   gem 'timecop'
   gem 'rspec-given'
@@ -126,10 +126,10 @@ group :test, :development do
 end
 
 group :development do
-  gem 'better_errors'
+  gem 'better_errors', '>= 2.2.0'
   gem 'binding_of_caller'
   gem 'librarian', '>= 0.0.25', require: false
-  gem 'annotate'
+  gem 'annotate', '>= 2.7.5'
   gem 'foreman', require: false
 end
 
@@ -148,15 +148,15 @@ gem 'htmlentities', require: false
 #  we are open to it. by deferring require to the initializer we can configure discourse installs without it
 
 gem 'flamegraph', require: false
-gem 'rack-mini-profiler', require: false
+gem 'rack-mini-profiler', '>= 0.9.8', require: false
 
 gem 'unicorn', require: false
 gem 'puma', require: false
-gem 'rbtrace', require: false, platform: :mri
+gem 'rbtrace', '>= 0.4.8', require: false, platform: :mri
 
 # required for feed importing and embedding
 #
-gem 'ruby-readability', require: false
+gem 'ruby-readability', '>= 0.7.1', require: false
 
 gem 'simple-rss', require: false
 
