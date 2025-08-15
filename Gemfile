@@ -8,13 +8,13 @@ end
 
 if rails_master?
   gem 'arel', git: 'https://github.com/rails/arel.git'
-  gem 'rails', git: 'https://github.com/rails/rails.git'
+  gem 'rails', '>= 7.1.5.2', git: 'https://github.com/rails/rails.git'
   gem 'rails-observers', git: 'https://github.com/rails/rails-observers.git'
-  gem 'seed-fu', git: 'https://github.com/SamSaffron/seed-fu.git', branch: 'discourse'
+  gem 'seed-fu', '>= 2.3.6', git: 'https://github.com/SamSaffron/seed-fu.git', branch: 'discourse'
 else
-  gem 'rails', '~> 4.2'
+  gem 'rails', '~> 7.1', '>= 7.1.5.2'
   gem 'rails-observers'
-  gem 'seed-fu', '~> 2.3.5'
+  gem 'seed-fu', '~> 2.3.6'
 end
 
 gem 'mail'
@@ -129,7 +129,7 @@ group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'librarian', '>= 0.0.25', require: false
-  gem 'annotate'
+  gem 'annotate', '>= 3.2.0'
   gem 'foreman', require: false
 end
 
